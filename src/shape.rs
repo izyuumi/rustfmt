@@ -242,6 +242,13 @@ impl Shape {
         })
     }
 
+    pub(crate) fn add_width(&self, width: usize) -> Shape {
+        Shape {
+            width: self.width + width,
+            ..*self
+        }
+    }
+
     pub(crate) fn shrink_left(&self, width: usize) -> Option<Shape> {
         Some(Shape {
             width: self.width.checked_sub(width)?,
